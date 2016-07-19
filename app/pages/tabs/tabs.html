@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>
+      Toronto
+    </ion-title>
+
+    <ion-buttons end>
+      <button (click)="openModal()">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-tabs tabbarLayout="title-hide" tabbarPlacement="bottom">
+  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="document"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
+</ion-tabs>

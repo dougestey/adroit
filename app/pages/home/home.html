@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Toronto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <!-- <ion-list>
+    <ion-list-header>Agenda Items</ion-list-header>
+    <ion-item *ngFor="let item of agendaItems">
+      <ion-icon name="ionic" item-left></ion-icon>
+      <
+    </ion-item>
+  </ion-list> -->
+  <ion-card *ngFor="let item of agendaItems">
+    <ion-card-header>
+      {{ item.title }}
+    </ion-card-header>
+    <ion-card-content>
+      {{ item.body }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
