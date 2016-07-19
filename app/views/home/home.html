@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Agenda</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <ion-card *ngFor="let item of agendaItems">
+    <ion-card-header>
+      {{ item.description }}
+    </ion-card-header>
+    <ion-card-content>
+      <!-- {{ item.body }} -->
+      A brief summary of the item goes here.
+    </ion-card-content>
+  </ion-card>
+</ion-content>
