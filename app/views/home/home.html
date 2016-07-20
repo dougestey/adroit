@@ -28,7 +28,7 @@
       Upcoming
     </ion-list-header>
     <!-- TODO: list items -->
-    <ion-list-header *ngIf="recentAgendaItems && recentAgendaItems.length > 0">
+    <ion-list-header *ngIf="recentAgendaItems && recentAgendaItems.length > 0" text-uppercase>
       Recent
     </ion-list-header>
     <ion-item-sliding *ngFor="let item of recentAgendaItems">
