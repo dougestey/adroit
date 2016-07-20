@@ -4,7 +4,7 @@ import { StatusBar } from 'ionic-native';
 import { TabsPage } from './views/tabs/tabs';
 
 @Component({
-  template: '<ion-nav [root]="rootPage"></ion-nav>'
+  template: '<ion-nav [root]="rootPage" primary></ion-nav>'
 })
 
 export class Adroit {

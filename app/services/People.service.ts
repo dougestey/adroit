@@ -5,7 +5,7 @@ import { Resource, ResourceParams } from 'ng2-resource-rest';
 
 @ResourceParams({
   url: 'https://tocityhall-api-staging.herokuapp.com/v0',
-  path: '/people'
+  path: '/people/{id}'
 })
 
 export class PeopleService extends Resource {}

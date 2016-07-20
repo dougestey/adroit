@@ -4,6 +4,7 @@ import { RESOURCE_PROVIDERS } from 'ng2-resource-rest';
 
 import { Person } from '../../models/Person';
 import { PeopleService } from '../../services/People.service';
+import { CouncillorView } from '../councillor/councillor';
 
 @Component({
   templateUrl: 'build/views/councillors/councillors.html',
@@ -41,6 +42,12 @@ export class CouncillorsView {
 
   getAvatar(councillor:any) {
     return { 'background-image': 'url(' + councillor.image + ')' }
+  }
+
+  selectCouncillor(councillor:any) {
+    this.nav.push(CouncillorView, {
+      councillor: councillor
+    })
   }
 
 }

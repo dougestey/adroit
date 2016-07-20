@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Agenda</ion-title>
+  <ion-navbar primary>
+    <ion-title>Councillors</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,7 +9,7 @@
     <ion-list-header>
       Councillors
     </ion-list-header>
-    <ion-item *ngFor="let councillor of councillors">
+    <ion-item *ngFor="let councillor of councillors" (click)="selectCouncillor(councillor)">
       <ion-avatar item-left [ngStyle]="getAvatar(councillor)">
       </ion-avatar>
       <h2>{{ councillor.name }}</h2>
