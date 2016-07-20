@@ -4,14 +4,54 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="home">
-  <ion-card *ngFor="let item of agendaItems">
+<ion-content padding>
+
+  <ion-card *ngIf="showIntro">
     <ion-card-header>
-      {{ item.description }}
+      Hey there, citizen!
     </ion-card-header>
     <ion-card-content>
-      <!-- {{ item.body }} -->
-      A brief summary of the item goes here.
+      This is where you can find agenda items pertaining to bills that will be voted on. As new items become available in the days before a council meeting, they'll show up here.
     </ion-card-content>
+    <ion-row no-padding>
+     <ion-col text-right>
+       <button clear small primary (click)="dismissIntro()">
+         Got it
+         <ion-icon name='checkmark'></ion-icon>
+       </button>
+     </ion-col>
+   </ion-row>
   </ion-card>
+
+  <ion-list>
+    <ion-list-header *ngIf="upcomingAgendaItems && upcomingAgendaItems.length > 0">
+      Upcoming
+    </ion-list-header>
+    <!-- TODO: list items -->
+    <ion-list-header *ngIf="recentAgendaItems && recentAgendaItems.length > 0">
+      Recent
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let item of recentAgendaItems">
+      <ion-item>
+        <ion-icon name="checkmark" item-left secondary *ngIf="item.event.status === 'passed'"></ion-icon>
+        <ion-icon name="close" item-left danger *ngIf="item.event.status !== 'passed'"></ion-icon>
+        <h2>{{ item.description }}</h2>
+        <p>{{ item.event.name }}</p>
+      </ion-item>
+      <ion-item-options>
+        <button primary>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button secondary>
+          <ion-icon name="thumbs-up"></ion-icon>
+          Good
+        </button>
+        <button danger>
+          <ion-icon name="thumbs-down"></ion-icon>
+          Bad
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

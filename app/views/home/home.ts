@@ -11,15 +11,21 @@ import { AgendaItemService } from '../../services/AgendaItem.service';
 
 export class HomeView {
 
-  agendaItems: AgendaItem[];
-  selectedItem: AgendaItem;
+  recentAgendaItems: AgendaItem[]
+  selectedItem: AgendaItem
+  showIntro: boolean
 
   constructor(private agendaItemService:AgendaItemService) {
     this.all()
+    this.showIntro = true
   }
 
   all() {
-    this.agendaItems = this.agendaItemService.query();
+    this.recentAgendaItems = this.agendaItemService.query()
+  }
+
+  dismissIntro() {
+    this.showIntro = false
   }
 
 }

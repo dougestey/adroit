@@ -21,4 +21,8 @@ export class CouncillorsView {
     this.councillors = this.peopleService.query();
   }
 
+  getAvatar(councillor:any) {
+    return { 'background-image': 'url(' + councillor.image + ')' }
+  }
+
 }

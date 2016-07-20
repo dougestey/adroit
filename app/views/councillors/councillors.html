@@ -4,14 +4,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="home">
+<ion-content padding>
   <ion-list>
+    <ion-list-header>
+      Councillors
+    </ion-list-header>
     <ion-item *ngFor="let councillor of councillors">
-      <ion-avatar item-left>
-        <img src="{{ councillor.image }}">
+      <ion-avatar item-left [ngStyle]="getAvatar(councillor)">
       </ion-avatar>
       <h2>{{ councillor.name }}</h2>
-      <p>Toronto</p>
+      <p>{{ councillor.division.name }}</p>
     </ion-item>
   </ion-list>
 </ion-content>

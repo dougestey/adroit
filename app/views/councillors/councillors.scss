@@ -1,5 +1,9 @@
 .councillors-view {
-  ion-avatar img {
-    border-radius: 0;
+  ion-avatar {
+    width: 3em;
+    height: 3em;
+    background-size: cover;
+    background-position: center 0%;
+    border-radius: 50%;
   }
 }
