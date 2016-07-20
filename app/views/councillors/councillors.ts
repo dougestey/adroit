@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Loading, NavController } from 'ionic-angular';
 import { RESOURCE_PROVIDERS } from 'ng2-resource-rest';
 
 import { Person } from '../../models/Person';
@@ -11,14 +12,31 @@ import { PeopleService } from '../../services/People.service';
 
 export class CouncillorsView {
 
-  councillors: Person[];
+  councillors: Person[]
+  loading: any
 
-  constructor(private peopleService:PeopleService) {
+  constructor(private peopleService:PeopleService, private nav:NavController) {
     this.all()
   }
 
   all() {
-    this.councillors = this.peopleService.query();
+    this.initLoadingAnimation()
+
+    this.councillors = this.peopleService.query(() => {
+      this.dismissLoadingAnimation()
+    })
+  }
+
+  initLoadingAnimation() {
+    this.loading = Loading.create({
+      content: 'Loading councillors...'
+    });
+
+    this.nav.present(this.loading);
+  }
+
+  dismissLoadingAnimation() {
+    this.loading.dismiss()
   }
 
   getAvatar(councillor:any) {
