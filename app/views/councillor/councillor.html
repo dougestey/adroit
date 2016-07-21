@@ -1,14 +1,23 @@
 <ion-header>
   <ion-navbar primary>
-    <ion-title>{{ councillor.name }}</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-row>
-    <ion-col>
-      <img src="{{ councillor.image }}" />
+<ion-content>
+  <ion-row padding class="primary-bg">
+    <ion-col width-33 offset-33 [ngStyle]="getAvatar(councillor)" class="avatar"></ion-col>
+  </ion-row>
+  <ion-row class="primary-bg">
+    <ion-col width-50 offset-25 text-center>
+      <h4 light>{{ councillor.name }}</h4>
     </ion-col>
   </ion-row>
-  {{ councillor.name }}
+  <ion-row>
+    <ion-list>
+      <ion-item *ngFor="let organization of councillor.organizations">
+        <h2>{{ organization.name }}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-row>
 </ion-content>

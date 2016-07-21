@@ -1,2 +1,15 @@
 .councillor-view {
+  .avatar {
+    width: 10em;
+    height: 10em;
+    background-size: 108%;
+    background-position: 10% 0%;
+    border-radius: 50%;
+    border: 2px color($colors, light) solid;
+    margin-top: 1em;
+  }
+  h4 {
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
 }

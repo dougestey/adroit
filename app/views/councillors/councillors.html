@@ -4,11 +4,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-list>
-    <ion-list-header text-uppercase>
-      Councillors
-    </ion-list-header>
     <ion-item *ngFor="let councillor of councillors" (click)="selectCouncillor(councillor)">
       <ion-avatar item-left [ngStyle]="getAvatar(councillor)">
       </ion-avatar>

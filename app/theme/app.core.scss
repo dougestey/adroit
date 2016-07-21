@@ -9,3 +9,8 @@
 
 @import "../views/home/home";
 @import "../views/councillors/councillors";
+@import "../views/councillor/councillor";
+
+.primary-bg {
+  background: color($colors, primary, contrast)
+}
