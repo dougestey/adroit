@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Platform, ionicBootstrap } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 import { TabsPage } from './views/tabs/tabs';
+// import {enableProdMode} from '@angular/core';
+//
+// enableProdMode()
 
 @Component({
   template: '<ion-nav [root]="rootPage" primary></ion-nav>'
