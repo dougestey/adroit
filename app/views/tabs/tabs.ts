@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HomeView } from '../home/home';
+import { AgendaView } from '../agenda/agenda';
 import { CouncillorsView } from '../councillors/councillors';
 
 @Component({
@@ -15,7 +15,7 @@ export class TabsPage {
   constructor() {
     // this tells the tabs component which Pages
     // should be each tab's root Page
-    this.tab1Root = HomeView;
+    this.tab1Root = AgendaView;
     this.tab2Root = CouncillorsView;
     // this.tab3Root = View;
   }
