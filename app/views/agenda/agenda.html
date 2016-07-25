@@ -24,10 +24,35 @@
   </ion-card>
 
   <ion-list>
+
+    <!-- Upcoming items -->
     <ion-list-header *ngIf="upcomingAgendaItems && upcomingAgendaItems.length > 0">
       Upcoming
     </ion-list-header>
-    <!-- TODO: list items -->
+    <ion-item-sliding *ngFor="let item of upcomingAgendaItems">
+      <ion-item>
+        <!-- <ion-icon name="checkmark" item-left secondary *ngIf="item.event.status === 'passed'"></ion-icon> -->
+        <!-- <ion-icon name="close" item-left danger *ngIf="item.event.status !== 'passed'"></ion-icon> -->
+        <h2>{{ item.description }}</h2>
+        <p>{{ item.event.name }}</p>
+      </ion-item>
+      <ion-item-options>
+        <button primary>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button secondary>
+          <ion-icon name="thumbs-up"></ion-icon>
+          Good
+        </button>
+        <button danger>
+          <ion-icon name="thumbs-down"></ion-icon>
+          Bad
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <!-- Past items -->
     <ion-list-header *ngIf="recentAgendaItems && recentAgendaItems.length > 0" text-uppercase>
       Recent
     </ion-list-header>
@@ -53,5 +78,6 @@
         </button>
       </ion-item-options>
     </ion-item-sliding>
+
   </ion-list>
 </ion-content>

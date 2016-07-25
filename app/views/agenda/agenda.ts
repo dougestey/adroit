@@ -6,11 +6,11 @@ import { AgendaItem } from '../../models/AgendaItem';
 import { AgendaItemService } from '../../services/AgendaItem.service';
 
 @Component({
-  templateUrl: 'build/views/home/home.html',
+  templateUrl: 'build/views/agenda/agenda.html',
   providers: [ RESOURCE_PROVIDERS ]
 })
 
-export class HomeView {
+export class AgendaView {
 
   recentAgendaItems: AgendaItem[]
   selectedItem: AgendaItem
