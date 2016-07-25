@@ -3,7 +3,7 @@ import { Loading, NavController } from 'ionic-angular';
 import { RESOURCE_PROVIDERS } from 'ng2-resource-rest';
 
 import { AgendaItem } from '../../models/AgendaItem';
-import { AgendaItemService } from '../../services/AgendaItem.service';
+import { AgendaItemService } from '../../services/tocityhall-api/AgendaItem.service';
 
 @Component({
   templateUrl: 'build/views/agenda/agenda.html',
@@ -12,22 +12,15 @@ import { AgendaItemService } from '../../services/AgendaItem.service';
 
 export class AgendaView {
 
-  recentAgendaItems: AgendaItem[]
+  latestAgendaItems: AgendaItem[]
+  upcomingAgendaItems: AgendaItem[]
   selectedItem: AgendaItem
   showIntro: boolean
   loading: any
 
   constructor(private agendaItemService:AgendaItemService, private nav:NavController) {
-    this.all()
+    this.load()
     this.showIntro = true
-  }
-
-  all() {
-    this.initLoadingAnimation()
-
-    this.recentAgendaItems = this.agendaItemService.query(() => {
-      this.dismissLoadingAnimation()
-    })
   }
 
   dismissIntro() {
@@ -37,13 +30,32 @@ export class AgendaView {
   initLoadingAnimation() {
     this.loading = Loading.create({
       content: 'Loading agenda items...'
-    });
-
-    this.nav.present(this.loading);
+    })
+    this.nav.present(this.loading)
   }
 
   dismissLoadingAnimation() {
-    this.loading.dismiss()
+    if (this.latestAgendaItems && this.upcomingAgendaItems) {
+      this.loading.dismiss()
+    }
+  }
+
+  load() {
+    this.initLoadingAnimation()
+
+    this.agendaItemService.latest()
+      .$observable
+      .subscribe(items => {
+        this.latestAgendaItems = items
+        this.dismissLoadingAnimation()
+      })
+
+    this.agendaItemService.upcoming()
+      .$observable
+      .subscribe(items => {
+        this.upcomingAgendaItems = items
+        this.dismissLoadingAnimation()
+      })
   }
 
 }

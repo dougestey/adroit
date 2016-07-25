@@ -26,7 +26,7 @@
   <ion-list>
 
     <!-- Upcoming items -->
-    <ion-list-header *ngIf="upcomingAgendaItems && upcomingAgendaItems.length > 0">
+    <ion-list-header *ngIf="upcomingAgendaItems && upcomingAgendaItems.length > 0" text-uppercase>
       Upcoming
     </ion-list-header>
     <ion-item-sliding *ngFor="let item of upcomingAgendaItems">
@@ -53,14 +53,15 @@
     </ion-item-sliding>
 
     <!-- Past items -->
-    <ion-list-header *ngIf="recentAgendaItems && recentAgendaItems.length > 0" text-uppercase>
+    <ion-list-header *ngIf="latestAgendaItems && latestAgendaItems.length > 0" text-uppercase>
       Recent
     </ion-list-header>
-    <ion-item-sliding *ngFor="let item of recentAgendaItems">
+    <ion-item-sliding *ngFor="let item of latestAgendaItems">
       <ion-item>
-        <ion-icon name="checkmark" item-left secondary *ngIf="item.event.status === 'passed'"></ion-icon>
-        <ion-icon name="close" item-left danger *ngIf="item.event.status !== 'passed'"></ion-icon>
+        <ion-icon name="checkmark" item-left secondary *ngIf="item.event.status === 'confirmed'"></ion-icon>
+        <ion-icon name="close" item-left danger *ngIf="item.event.status !== 'confirmed'"></ion-icon>
         <h2>{{ item.description }}</h2>
+        <h3 text-uppercase>{{ item.event.status }}</h3>
         <p>{{ item.event.name }}</p>
       </ion-item>
       <ion-item-options>
