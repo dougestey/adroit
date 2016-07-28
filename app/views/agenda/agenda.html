@@ -58,8 +58,9 @@
     </ion-list-header>
     <ion-item-sliding *ngFor="let item of latestAgendaItems">
       <ion-item>
-        <ion-icon name="checkmark" item-left secondary *ngIf="item.event.status === 'confirmed'"></ion-icon>
-        <ion-icon name="close" item-left danger *ngIf="item.event.status !== 'confirmed'"></ion-icon>
+        <ion-icon name="radio-button-off" item-left primary *ngIf="!item.opinion"></ion-icon>
+        <ion-icon name="checkmark-circle" item-left secondary *ngIf="item.opinion && item.opinion === 'good'"></ion-icon>
+        <ion-icon name="close-circle" item-left danger *ngIf="item.opinion && item.opinion === 'bad'"></ion-icon>
         <h2>{{ item.description }}</h2>
         <h3 text-uppercase>{{ item.event.status }}</h3>
         <p>{{ item.event.name }}</p>
@@ -69,11 +70,11 @@
           <ion-icon name="ios-more"></ion-icon>
           More
         </button>
-        <button secondary>
+        <button secondary (click)="voteUp(item)">
           <ion-icon name="thumbs-up"></ion-icon>
           Good
         </button>
-        <button danger>
+        <button danger (click)="voteDown(item)">
           <ion-icon name="thumbs-down"></ion-icon>
           Bad
         </button>

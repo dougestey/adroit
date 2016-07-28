@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Loading, NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Loading, NavController, List } from 'ionic-angular';
 import { RESOURCE_PROVIDERS } from 'ng2-resource-rest';
 
 import { AgendaItem } from '../../models/AgendaItem';
@@ -11,6 +11,8 @@ import { AgendaItemService } from '../../services/tocityhall-api/AgendaItem.serv
 })
 
 export class AgendaView {
+
+  @ViewChild(List) list: List
 
   latestAgendaItems: AgendaItem[]
   upcomingAgendaItems: AgendaItem[]
@@ -25,6 +27,16 @@ export class AgendaView {
 
   dismissIntro() {
     this.showIntro = false
+  }
+
+  voteUp(item) {
+    item.opinion = 'good'
+    this.list.closeSlidingItems()
+  }
+
+  voteDown(item) {
+    item.opinion = 'bad'
+    this.list.closeSlidingItems()
   }
 
   initLoadingAnimation() {
