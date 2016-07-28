@@ -33,7 +33,7 @@ export class CouncillorsView {
       content: 'Loading councillors...'
     });
 
-    this.nav.present(this.loading);
+    this.nav.present(this.loading)
   }
 
   dismissLoadingAnimation() {

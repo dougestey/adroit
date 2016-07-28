@@ -35,7 +35,7 @@ export class CouncillorView {
       content: 'Loading councillor...'
     });
 
-    this.nav.present(this.loading);
+    this.nav.present(this.loading)
   }
 
   dismissLoadingAnimation() {
