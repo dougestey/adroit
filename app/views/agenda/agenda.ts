@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Loading, NavController, List } from 'ionic-angular';
+import { Loading, NavController, List, Alert } from 'ionic-angular';
 import { RESOURCE_PROVIDERS } from 'ng2-resource-rest';
 
 import { AgendaItem } from '../../models/AgendaItem';
@@ -19,24 +19,46 @@ export class AgendaView {
   selectedItem: AgendaItem
   showIntro: boolean
   loading: any
+  alert: any
+  hasSeenVotingExplanation: boolean
 
   constructor(private agendaItemService:AgendaItemService, private nav:NavController) {
     this.load()
     this.showIntro = true
   }
 
-  dismissIntro() {
-    this.showIntro = false
+  showVotingExplanation() {
+    if (this.hasSeenVotingExplanation)
+      return
+
+    this.alert = Alert.create({
+      title: 'You just voted!',
+      message: 'We\'ll let your councillor know your thoughts on this motion - as well as others you vote on going forward. Keep it up!',
+      buttons: ['Ok']
+    })
+
+    this.hasSeenVotingExplanation = true
+    this.nav.present(this.alert)
+  }
+
+  dismissVotingExplanation() {
+    this.alert.dismiss()
   }
 
   voteUp(item) {
     item.opinion = 'good'
+    this.showVotingExplanation()
     this.list.closeSlidingItems()
   }
 
   voteDown(item) {
     item.opinion = 'bad'
+    this.showVotingExplanation()
     this.list.closeSlidingItems()
+  }
+
+  dismissIntro() {
+    this.showIntro = false
   }
 
   initLoadingAnimation() {
