@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Loading, NavController, NavParams } from 'ionic-angular';
-import { RESOURCE_PROVIDERS } from 'ng2-resource-rest';
+import { Component } from '@angular/core'
+import { Loading, NavController, NavParams } from 'ionic-angular'
+import { RESOURCE_PROVIDERS } from 'ng2-resource-rest'
 
-import { Person } from '../../models/Person';
-import { PeopleService } from '../../services/tocityhall-api/People.service';
+import { Person } from '../../models/Person'
+import { PeopleService } from '../../services/tocityhall-api/People.service'
 
 @Component({
   templateUrl: 'build/views/councillor/councillor.html',

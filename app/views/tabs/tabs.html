@@ -1,3 +1,29 @@
+<ion-menu [content]="menu">
+  <ion-content #menu>
+    <ion-toolbar>
+      <ion-title>Adroit</ion-title>
+    </ion-toolbar>
+    <ion-list no-lines>
+      <ion-item-group>
+        <ion-item>
+          <ion-icon name="document" item-left></ion-icon>
+          Agenda
+        </ion-item>
+        <ion-item>
+          <ion-icon name="people" item-left></ion-icon>
+          Councillors
+        </ion-item>
+      </ion-item-group>
+      <ion-item-group>
+        <ion-item>
+          <ion-icon name="settings" item-left></ion-icon>
+          Settings
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
 <ion-tabs tabbarPlacement="bottom">
   <ion-tab [root]="tab1Root" tabTitle="Agenda" tabIcon="document"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Councillors" tabIcon="people"></ion-tab>

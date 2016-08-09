@@ -1,9 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
-import { Loading, NavController, List, Alert } from 'ionic-angular';
-import { RESOURCE_PROVIDERS } from 'ng2-resource-rest';
+import { Component, ViewChild } from '@angular/core'
+import { Loading, NavController, MenuController, List, Alert } from 'ionic-angular'
+import { RESOURCE_PROVIDERS } from 'ng2-resource-rest'
 
-import { AgendaItem } from '../../models/AgendaItem';
-import { AgendaItemService } from '../../services/tocityhall-api/AgendaItem.service';
+import { AgendaItem } from '../../models/AgendaItem'
+import { AgendaItemService } from '../../services/tocityhall-api/AgendaItem.service'
 
 @Component({
   templateUrl: 'build/views/agenda/agenda.html',
@@ -22,9 +22,10 @@ export class AgendaView {
   alert: any
   hasSeenVotingExplanation: boolean
 
-  constructor(private agendaItemService:AgendaItemService, private nav:NavController) {
+  constructor(private agendaItemService:AgendaItemService, private nav:NavController, private menu:MenuController) {
     this.load()
     this.showIntro = true
+    menu.enable(true)
   }
 
   showVotingExplanation() {

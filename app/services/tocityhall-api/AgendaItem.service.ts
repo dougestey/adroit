@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { RequestMethod } from "@angular/http";
-import { Resource, ResourceParams, ResourceAction, ResourceResult } from 'ng2-resource-rest';
+import { Injectable } from '@angular/core'
+import { RequestMethod } from '@angular/http'
+import { Resource, ResourceParams, ResourceAction, ResourceResult } from 'ng2-resource-rest'
 
 @Injectable()
 
@@ -15,13 +15,13 @@ export class AgendaItemService extends Resource {
     path: '/latest',
     isArray: true
   })
-  latest(data?:any, callback?:Function): ResourceResult { return null; }
+  latest(data?:any, callback?:Function): ResourceResult { return null }
 
   @ResourceAction({
     method: RequestMethod.Get,
     path: '/upcoming',
     isArray: true
   })
-  upcoming(data?:any, callback?:Function): ResourceResult { return null; }
+  upcoming(data?:any, callback?:Function): ResourceResult { return null }
 
 }
