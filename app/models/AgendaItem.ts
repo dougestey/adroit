@@ -5,6 +5,7 @@ export class AgendaItem {
   description: string
   subjects: any
   classification: any
+  bill: any
   related_entities: any
   notes: any
   event: any
