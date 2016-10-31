@@ -5,7 +5,7 @@ import { Resource, ResourceParams, ResourceAction, ResourceResult } from 'ng2-re
 @Injectable()
 
 @ResourceParams({
-  url: 'https://tocityhall-api-staging.herokuapp.com/v0/agenda_items',
+  url: 'http://tocityhall-api-staging.herokuapp.com/v0/agenda_items',
 })
 
 export class AgendaItemService extends Resource {
