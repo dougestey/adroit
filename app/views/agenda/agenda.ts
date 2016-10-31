@@ -46,6 +46,11 @@ export class AgendaView {
     this.alert.dismiss()
   }
 
+  openCouncilmatic(item) {
+    window.open('http://councilmatic.t0ronto.ca/legislation/' + item.bill.name, '_system')
+    this.list.closeSlidingItems()
+  }
+
   voteUp(item) {
     item.opinion = 'good'
     this.showVotingExplanation()

@@ -41,7 +41,7 @@
         <p>{{ item.event.name }}</p>
       </ion-item>
       <ion-item-options>
-        <button primary>
+        <button primary (click)="openCouncilmatic(item)">
           <ion-icon name="ios-more"></ion-icon>
           More
         </button>
