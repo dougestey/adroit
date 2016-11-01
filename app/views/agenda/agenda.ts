@@ -47,7 +47,7 @@ export class AgendaView {
   }
 
   openCouncilmatic(item) {
-    window.open('http://councilmatic.t0ronto.ca/legislation/' + item.bill.name, '_system')
+    window.open('http://tor-councilmatic-staging.herokuapp.com/legislation/' + item.bill.name, '_system')
     this.list.closeSlidingItems()
   }
 
